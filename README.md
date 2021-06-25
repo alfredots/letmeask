@@ -52,7 +52,7 @@ Esse projeto foi desenvolvido com o objetivo de atualizar me com reactjs.
 ---
 ![Página de Perguntas/Respostas](./images/03.png)
 
-### Página do ADMIN | Q&A
+### Página do administrador da sala | Q&A
 ---
 ![Página de Perguntas/Respostas](./images/04.png)
 
@@ -101,7 +101,7 @@ The app will be available for access on your browser at http://localhost:3000
  - [x] Users can't update or delete questions if not room owners;
  - [x] Only the room owner can update questiona highlight abd answered data;
  - [x] Only the room owner can close the room;
- - [ ] Don't allow duplicated likes from the same author;
+ - [x] Don't allow duplicated likes from the same author;
  - [ ] Don't allow user to like own questions;
  
 ### Regras PT-BR
@@ -113,8 +113,9 @@ The app will be available for access on your browser at http://localhost:3000
  - [x] Os usuários não podem atualizar ou excluir perguntas se não forem os proprietários da sala;
  - [x] Apenas o proprietário da sala pode atualizar as perguntas, realçar e dados respondidos;
  - [x] Apenas o proprietário da sala pode fechar a sala;
- - [] Não permitir curtidas duplicadas do mesmo autor;
+ - [x] Não permitir curtidas duplicadas do mesmo autor;
  - [] Não permita que o usuário goste de suas próprias perguntas;
+
 ## 🎨 Layout
 ---
 ### Figma
