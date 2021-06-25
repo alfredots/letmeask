@@ -122,6 +122,6 @@ The app will be available for access on your browser at http://localhost:3000
 
 ## ⭕ Web
 ---
-![Home](./src/assets/others/1_Home.png)
+![Home](./images/01.png)
 
 Feito com ❤️ por Alfredo Tito <img src="https://raw.githubusercontent.com/Douglasproglima/douglasproglima/master/gifs/Hi.gif" width="30px"></h2> [Entre em contato!](https://www.linkedin.com/in/alfredo-tito-837429ba/)
