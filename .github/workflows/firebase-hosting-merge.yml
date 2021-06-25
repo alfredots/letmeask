@@ -9,14 +9,6 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_API_KEY: 'AIzaSyCBWvz3hjyi_q9JLMpN0qV-NfOUBWh6kQE'
-      REACT_APP_AUTH_DOMAIN: 'letmeask-e3642.firebaseapp.com'
-      REACT_APP_DATABASE_URL: 'https://letmeask-e3642-default-rtdb.firebaseio.com'
-      REACT_APP_PROJECT_ID: 'letmeask-e3642'
-      REACT_APP_STORAGE_BUCKET: 'letmeask-e3642.appspot.com'
-      REACT_APP_MESSAGING_SENDER_ID: '711472389040'
-      REACT_APP_APP_ID: '1:711472389040:web:abee13a32f29635c8b1475'
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
