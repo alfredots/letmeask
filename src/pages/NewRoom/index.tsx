@@ -1,14 +1,14 @@
 import { FormEvent, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { database } from '../services/firebase'
-import { useAuth } from '../hooks/useAuth'
+import { database } from '../../services/firebase'
+import { useAuth } from '../../hooks/useAuth'
 
-import illustrationImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg'
+import illustrationImg from '../../assets/images/illustration.svg'
+import logoImg from '../../assets/images/logo.svg'
 
-import { Button } from '../components/Button'
+import { Button } from '../../components/Button'
 
-import '../styles/auth.scss'
+import * as S from './styled'
 
 export function NewRoom() {
   const { user } = useAuth()
@@ -33,17 +33,17 @@ export function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
-      <aside>
+    <S.Wrapper>
+      <S.Aside>
         <img
           src={illustrationImg}
           alt="Ilustração simbolizando perguntas e respostas"
         />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
-      <main>
-        <div className="main-content">
+      </S.Aside>
+      <S.Main>
+        <S.MainContent>
           <img src={logoImg} alt="logo" />
           <h2>Criar uma nova sala</h2>
           <h2>{user?.name}</h2>
@@ -59,8 +59,8 @@ export function NewRoom() {
           <p>
             Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
           </p>
-        </div>
-      </main>
-    </div>
+        </S.MainContent>
+      </S.Main>
+    </S.Wrapper>
   )
 }
