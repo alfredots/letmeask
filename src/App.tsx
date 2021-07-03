@@ -6,8 +6,8 @@ import { AdminRoom } from './pages/AdminRoom'
 import { Home } from './pages/Home'
 import { NewRoom } from './pages/NewRoom'
 import { Room } from './pages/Room'
+import GlobalStyles from './styles/global'
 
-import './styles/global.scss'
 import theme from './styles/theme'
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
     <BrowserRouter>
       <AuthContextProvider>
         <ThemeProvider theme={theme}>
+          <GlobalStyles />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/rooms/new" component={NewRoom} />
