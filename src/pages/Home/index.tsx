@@ -1,22 +1,21 @@
 import { useHistory } from 'react-router'
-import { Button } from '../components/Button'
-import { useAuth } from '../hooks/useAuth'
+import { Button } from '../../components/Button'
+import { useAuth } from '../../hooks/useAuth'
 
-import illustrationImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg'
-import googleIconImg from '../assets/images/google-icon.svg'
-
-import '../styles/auth.scss'
+import illustrationImg from '../../assets/images/illustration.svg'
+import logoImg from '../../assets/images/logo.svg'
+import googleIconImg from '../../assets/images/google-icon.svg'
 import { FormEvent, useState } from 'react'
-import { database } from '../services/firebase'
+import { database } from '../../services/firebase'
 
+import * as S from './styled'
 
 export function Home() {
   const history = useHistory()
   const [roomCode, setRoomCode] = useState('')
-  const {user, signInWithGoogle} = useAuth()
+  const { user, signInWithGoogle } = useAuth()
 
-  async function handleCreateRoom () {
+  async function handleCreateRoom() {
     if (!user) {
       await signInWithGoogle()
     }
@@ -27,7 +26,7 @@ export function Home() {
   async function handleJoinRoom(event: FormEvent) {
     event.preventDefault()
 
-    if(roomCode.trim() === '') {
+    if (roomCode.trim() === '') {
       return
     }
 
@@ -47,31 +46,34 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
-      <aside>
-        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
+    <S.Wrapper>
+      <S.Aside>
+        <img
+          src={illustrationImg}
+          alt="Ilustração simbolizando perguntas e respostas"
+        />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
-      <main>
-        <div className="main-content">
+      </S.Aside>
+      <S.Main>
+        <S.MainContent>
           <img src={logoImg} alt="logo" />
-          <button onClick={handleCreateRoom} className="create-room">
-            <img src={googleIconImg} alt="Logo da Google"/>
+          <S.CreateRoomBtn onClick={handleCreateRoom}>
+            <img src={googleIconImg} alt="Logo da Google" />
             Crie sua sala com o Google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
+          </S.CreateRoomBtn>
+          <S.Separator className="separator">ou entre em uma sala</S.Separator>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
               placeholder="Digite o código da sala"
-              onChange={event => setRoomCode(event.target.value)}
+              onChange={(event) => setRoomCode(event.target.value)}
               value={roomCode}
             />
             <Button type="submit">Entrar na sala</Button>
           </form>
-        </div>
-      </main>
-    </div>
+        </S.MainContent>
+      </S.Main>
+    </S.Wrapper>
   )
 }

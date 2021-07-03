@@ -17,18 +17,18 @@ type AuthContextProviderProps = {
 
 export const AuthContext = createContext({} as AuthContextType)
 
-export function AuthContextProvider(props:AuthContextProviderProps) {
+export function AuthContextProvider(props: AuthContextProviderProps) {
   const [user, setUser] = useState<User>()
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         const { displayName, photoURL, uid } = user
-  
-        if(!displayName || !photoURL) {
+
+        if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.')
         }
-  
+
         setUser({
           id: uid,
           name: displayName,
@@ -41,16 +41,16 @@ export function AuthContextProvider(props:AuthContextProviderProps) {
       unsubscribe()
     }
   }, [])
-  
-  async function signInWithGoogle () {
+
+  async function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     const result = await auth.signInWithPopup(provider)
-    
+
     if (result.user) {
       const { displayName, photoURL, uid } = result.user
 
-      if(!displayName || !photoURL) {
+      if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.')
       }
 
@@ -62,7 +62,9 @@ export function AuthContextProvider(props:AuthContextProviderProps) {
     }
   }
 
-  return (<AuthContext.Provider value={{user, signInWithGoogle}}>
-    {props.children}
-  </AuthContext.Provider>)
+  return (
+    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+      {props.children}
+    </AuthContext.Provider>
+  )
 }

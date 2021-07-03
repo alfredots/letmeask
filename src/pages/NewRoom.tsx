@@ -10,7 +10,6 @@ import { Button } from '../components/Button'
 
 import '../styles/auth.scss'
 
-
 export function NewRoom() {
   const { user } = useAuth()
   const history = useHistory()
@@ -19,7 +18,7 @@ export function NewRoom() {
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault()
 
-    if(newRoom.trim() === '') {
+    if (newRoom.trim() === '') {
       return
     }
 
@@ -27,7 +26,7 @@ export function NewRoom() {
 
     const firebaseRoom = await roomRef.push({
       title: newRoom,
-      authorId: user?.id,
+      authorId: user?.id
     })
 
     history.push(`/admin/rooms/${firebaseRoom.key}`)
@@ -36,7 +35,10 @@ export function NewRoom() {
   return (
     <div id="page-auth">
       <aside>
-        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
+        <img
+          src={illustrationImg}
+          alt="Ilustração simbolizando perguntas e respostas"
+        />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
@@ -46,10 +48,10 @@ export function NewRoom() {
           <h2>Criar uma nova sala</h2>
           <h2>{user?.name}</h2>
           <form onSubmit={handleCreateRoom}>
-            <input 
+            <input
               type="text"
               placeholder="Nome da sala"
-              onChange={event => setNewRoom(event.target.value)}
+              onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
             <Button type="submit">Criar sala</Button>

@@ -13,8 +13,7 @@ type QuestionProps = {
   isHighlighted?: boolean
 }
 
-
-export function Question ({
+export function Question({
   content,
   author,
   children,
@@ -26,16 +25,16 @@ export function Question ({
       className={cx(
         'question',
         { answered: isAnswered },
-        { highlighted: isHighlighted  && !isAnswered}
+        { highlighted: isHighlighted && !isAnswered }
       )}
     >
       <p>{content}</p>
       <footer>
         <div className="user-info">
-          <img src={author.avatar} alt={author.name}/>
+          <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </div>
-        <div>{ children }</div>
+        <div>{children}</div>
       </footer>
     </div>
   )
