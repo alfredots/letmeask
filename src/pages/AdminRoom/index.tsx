@@ -1,12 +1,11 @@
 import { useHistory, useParams } from 'react-router-dom'
-import logoImg from '../assets/images/logo.svg'
-import deleteImg from '../assets/images/delete.svg'
-import checkImg from '../assets/images/check.svg'
-import answerImg from '../assets/images/answer.svg'
+import logoImg from '../../assets/images/logo.svg'
+import deleteImg from '../../assets/images/delete.svg'
+import checkImg from '../../assets/images/check.svg'
+import answerImg from '../../assets/images/answer.svg'
 import { Button } from '../../components/Button'
 import { Question } from '../../components/Question'
 import { RoomCode } from '../../components/RoomCode'
-// import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../../hooks/useRoom'
 
 import { database } from '../../services/firebase'
@@ -50,7 +49,7 @@ export function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
+    <div>
       <S.Header>
         <S.Content>
           <img src={logoImg} alt="Letmeask" />
@@ -63,7 +62,7 @@ export function AdminRoom() {
         </S.Content>
       </S.Header>
 
-      <S.Content>
+      <S.Main>
         <div className="room-title">
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
@@ -105,7 +104,7 @@ export function AdminRoom() {
             )
           })}
         </div>
-      </S.Content>
+      </S.Main>
     </div>
   )
 }

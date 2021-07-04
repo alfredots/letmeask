@@ -30,6 +30,12 @@ export const Content = styled.div`
     & > img {
       margin-bottom: ${(props) => props.theme.sizes['size-8']};
     }
+
+    & > div {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 `
 export const Main = styled.div`
